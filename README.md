@@ -19,9 +19,10 @@ Steps:
  cat add_file | nc localhost 8889
  ```
 1. Notice the traffic should be flowing through the History tab and if you intercept you can see that some of the data is human readable but not all.
+
  ![](http://i.imgur.com/rCGIJho.png)
  
-##Now we need to use the python Mangler to decode the data for use so that it is easier to edit in the interceptor. 
+##Now we need to use the python Mangler to decode the data for us so that it is easier to edit in the interceptor. 
 1. copy addressbook.proto to the same folder you ran Burp from.
 1. Add the following python code to the python Mangler and update **path2protoc** with your path to the protoc command. Download protoc [here for your distro](https://github.com/google/protobuf/releases).
  ```
@@ -57,9 +58,12 @@ Steps:
    return bytearray(out)
  ```
 1. Now turn enable the python Mangler on the Nope proxy automation tab.
+
   ![](http://i.imgur.com/3vPWsV4.png)
+  
 1. Turn on intercepting.
 1. Repeat step 3 and you should see the decoded protobuf that you can edit before sending to the server.
+
  ![](http://i.imgur.com/z2e6wpW.png)
 
 
